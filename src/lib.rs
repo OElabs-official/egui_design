@@ -97,12 +97,12 @@ fn style(egui_ctx: &egui::CtxRef)
                 {//最后几个
                     visuals.code_bg_color               =   Color32::from_gray(28);             //  Color32::from_gray(64)
                     visuals.hyperlink_color             =   Color32::from_rgb(160, 90, 168);    //  Color32::from_rgb(90, 170, 255)   
+                    visuals.collapsing_header_frame = true;  //false                          
                     // resize_corner_size: 12.0,
                     // text_cursor_width: 2.0, // 
                     // text_cursor_preview: false,   // preview text cursor on hover                 
                     // clip_rect_margin: 3.0, // should be at least half the size of the widest frame stroke + max WidgetVisuals::expansion
                     // button_frame: true,
-                    // collapsing_header_frame: false,                        
                 }
 
                 
@@ -152,15 +152,14 @@ fn style(egui_ctx: &egui::CtxRef)
                             noninteractive    =   style::WidgetVisuals
                             {
                                 bg_fill: Color32::new(17,17,17,255), // window background
-                                bg_stroke: Stroke::new(3.0, Color32::new(8,15,15,255)), // separators, indentation lines, windows outlines
+                                bg_stroke: Stroke::new(1.0, Color32::new(8,15,15,255)), // separators, indentation lines, windows outlines
                                 fg_stroke: Stroke::new(2.0, Color32::from_gray(154)), // normal text color
                                 corner_radius: 0.0,
                                 expansion: 0.0,
                             };
                             inactive    =   style::WidgetVisuals
                             {
-                                bg_fill: Color32::new(27,38,43,255), // window background
-                                bg_stroke: Stroke::new(0.0, Color32::new(8,15,15,255)), // separators, indentation lines, windows outlines
+                                bg_fill: Color32::new(27,38,43,255),
                                 .. noninteractive
                             };
                             hovered     =   style::WidgetVisuals
