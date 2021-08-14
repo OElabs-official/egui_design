@@ -159,8 +159,8 @@ fn style(egui_ctx: &egui::CtxRef)
                             };
                             inactive    =   style::WidgetVisuals
                             {
-                                bg_fill: Color32::new(17,17,17,255), // window background
-                                bg_stroke: Stroke::new(3.0, Color32::new(8,15,15,255)), // separators, indentation lines, windows outlines
+                                bg_fill: Color32::new(27,38,43,255), // window background
+                                bg_stroke: Stroke::new(0.0, Color32::new(8,15,15,255)), // separators, indentation lines, windows outlines
                                 .. noninteractive
                             };
                             hovered     =   style::WidgetVisuals
