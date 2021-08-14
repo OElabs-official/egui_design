@@ -160,6 +160,7 @@ fn style(egui_ctx: &egui::CtxRef)
                             inactive    =   style::WidgetVisuals
                             {
                                 bg_fill: Color32::new(27,38,43,255),
+                                fg_stroke: Stroke::new(2.0, Color32::new(169,148,116,255)),
                                 .. noninteractive
                             };
                             hovered     =   style::WidgetVisuals
