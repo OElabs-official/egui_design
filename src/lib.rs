@@ -68,7 +68,7 @@ fn style(egui_ctx: &egui::CtxRef)
             {
                 spacing.item_spacing        =   vec2(5.0, 2.0);     //  vec2(8.0, 3.0)
                 spacing.window_padding      =   vec2(2.0, 4.0);     //  Vec2::splat(6.0)
-                spacing.button_padding      =   vec2(10.0, 5.0);    //  vec2(4.0, 1.0)
+                spacing.button_padding      =   vec2(40.0, 10.0);    //  vec2(4.0, 1.0)
                 spacing.interact_size       =   vec2(80.0, 30.0);   //  vec2(40.0, 18.0)           
                 spacing.indent              =   15.0;   //  18.0
                 spacing.slider_width        =   300.0;  //  100.0
