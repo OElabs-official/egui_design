@@ -29,12 +29,12 @@ fn fonts(egui_ctx: &egui::CtxRef)
     .insert(0, "LXGWWenKai-Regular".to_owned());
 
     {   //字体大小  
-        fonts.family_and_size.insert    (TextStyle::Small,      (FontFamily::Proportional, 20.0));
-        fonts.family_and_size.insert    (TextStyle::Body,       (FontFamily::Proportional, 25.0));
-        fonts.family_and_size.insert    (TextStyle::Button,     (FontFamily::Proportional, 25.0));
-        fonts.family_and_size.insert    (TextStyle::Heading,    (FontFamily::Proportional, 30.0));
-        fonts.family_and_size.insert    (TextStyle::Monospace,  (FontFamily::Monospace, 22.0));
-    }  
+        fonts.family_and_size.insert    (TextStyle::Small,      (FontFamily::Proportional, 15.0));
+        fonts.family_and_size.insert    (TextStyle::Body,       (FontFamily::Proportional, 20.0));
+        fonts.family_and_size.insert    (TextStyle::Button,     (FontFamily::Proportional, 20.0));
+        fonts.family_and_size.insert    (TextStyle::Heading,    (FontFamily::Proportional, 25.0));
+        fonts.family_and_size.insert    (TextStyle::Monospace,  (FontFamily::Monospace, 18.0));
+    }   
 
     egui_ctx.set_fonts(fonts);
 }
@@ -66,15 +66,15 @@ fn style(egui_ctx: &egui::CtxRef)
         {
             spacing = style::Spacing::default();
             {
-                spacing.item_spacing        =   vec2(5.0, 2.0);     //  vec2(8.0, 3.0)
-                spacing.window_padding      =   vec2(2.0, 4.0);     //  Vec2::splat(6.0)
-                spacing.button_padding      =   vec2(40.0, 10.0);    //  vec2(4.0, 1.0)
-                spacing.interact_size       =   vec2(80.0, 30.0);   //  vec2(40.0, 18.0)           
+                spacing.item_spacing        =   vec2(20.0, 10.0);     //  vec2(8.0, 3.0)  // 所有物件的 横向和纵向间距
+                spacing.window_padding      =   vec2(10.0, 5.0);     //  Vec2::splat(6.0)  // 窗口的边框宽度
+                spacing.button_padding      =   vec2(10.0, 5.0);    //  vec2(4.0, 1.0)  // 按钮与文字的间隔长度
+                spacing.interact_size       =   vec2(80.0, 30.0);   //  vec2(40.0, 18.0)  //整个交互的高度 ，需要大于按钮的总高度 （间隔+文字
                 spacing.indent              =   15.0;   //  18.0
-                spacing.slider_width        =   300.0;  //  100.0
-                spacing.text_edit_width     =   300.0;  //  280.0
+                spacing.slider_width        =   500.0;  //  100.0
+                spacing.text_edit_width     =   500.0;  //  280.0
                 spacing.scroll_bar_width    =   25.0;   //  8.0
-                spacing.icon_width          =   19.0;   //  14.0    <!!> check box etc . width
+                spacing.icon_width          =   20.0;   //  14.0    <!!> check box etc . width
                 spacing.icon_spacing        =   10.0;   //  0.0     <!!> check box etc . spacing
                 //spacing.tooltip_width       =   600.0;            //  600
                 // spacing.indent_ends_with_horizontal_line = false; //false
@@ -152,10 +152,10 @@ fn style(egui_ctx: &egui::CtxRef)
                             noninteractive    =   style::WidgetVisuals
                             {
                                 bg_fill: Color32::new(17,17,17,255), // window background
-                                bg_stroke: Stroke::new(1.0, Color32::new(8,15,15,255)), // separators, indentation lines, windows outlines
+                                bg_stroke: Stroke::new(1.0, Color32::from_gray(66)), // separators, indentation lines, windows outlines
                                 fg_stroke: Stroke::new(2.0, Color32::from_gray(154)), // normal text color
                                 corner_radius: 0.0,
-                                expansion: 0.0,
+                                expansion: 4.0,
                             };
                             inactive    =   style::WidgetVisuals
                             {
@@ -169,13 +169,13 @@ fn style(egui_ctx: &egui::CtxRef)
                                 bg_stroke: Stroke::new(0.0, Color32::new(0,0,0,0)), // e.g. hover over window edge or button
                                 fg_stroke: Stroke::new(2.0, Color32::new(151,222,235,255)),
                                 corner_radius: 8.0,
-                                expansion: 2.0,
+                                expansion: noninteractive.expansion + 4.0,
                             };
                             active      =   style::WidgetVisuals
                             {
                                 bg_fill: Color32::new(56,138,61,255),
                                 bg_stroke: Stroke::new(2.0, Color32::new(181,222,223,255)), // e.g. hover over window edge or button
-                                corner_radius: 40.0,
+                                corner_radius: 20.0,
                                 .. hovered
                             };
                             open        =   style::WidgetVisuals
@@ -184,7 +184,7 @@ fn style(egui_ctx: &egui::CtxRef)
                                 bg_stroke: Stroke::new(2.0, Color32::new(181,222,223,255)),
                                 fg_stroke: Stroke::new(2.0, Color32::new(151,222,235,255)),
                                 corner_radius: 2.0,
-                                expansion: 0.0,
+                                .. noninteractive
                             }
                         }                       
                         widgets = style::Widgets{noninteractive,inactive,hovered,active,open};
